@@ -22,7 +22,3 @@ coverage
 
 # Default database file
 db.sqlite
-
-# Editor directories and files
-.idea
-.vscode
