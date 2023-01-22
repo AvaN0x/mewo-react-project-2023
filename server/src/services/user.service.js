@@ -32,6 +32,15 @@ const getUserById = async (id) => {
 };
 
 /**
+ * Get users by ids
+ * @param {Array<Number>} ids
+ * @returns {Promise<User[]>}
+ */
+const getUsersByIds = async (ids) => {
+  return User.findAll({ where: { id: ids } });
+};
+
+/**
  * Get user by email
  * @param {string} email
  * @returns {Promise<User>}
@@ -72,11 +81,27 @@ const deleteUserById = async (userId) => {
   return user;
 };
 
+const getUserDiscussions = async (userId) => {
+  const user = await getUserById(userId);
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+  return user.getDiscussions().then((discussions) =>
+    discussions.map((discussion) => ({
+      id: discussion.id,
+      title: discussion.title,
+      description: discussion.description,
+    }))
+  );
+};
+
 module.exports = {
   createUser,
   queryUsers,
   getUserById,
+  getUsersByIds,
   getUserByEmail,
   updateUserById,
   deleteUserById,
+  getUserDiscussions,
 };

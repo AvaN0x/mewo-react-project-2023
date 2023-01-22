@@ -45,10 +45,17 @@ const deleteUser = {
   }),
 };
 
+const getUserDiscussions = {
+  params: Joi.object().keys({
+    userId: Joi.number().required(),
+  }),
+};
+
 module.exports = {
   createUser,
   getUsers,
   getUser,
   updateUser,
   deleteUser,
+  getUserDiscussions,
 };

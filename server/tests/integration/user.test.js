@@ -5,7 +5,8 @@ const app = require('../../src/app');
 const setupTestDB = require('../utils/setupTestDB');
 const { User } = require('../../src/models');
 const { userOne, userTwo, admin, insertUsers } = require('../fixtures/user.fixture');
-const { userOneAccessToken, adminAccessToken } = require('../fixtures/token.fixture');
+const { userOneAccessToken, userTwoAccessToken, adminAccessToken } = require('../fixtures/token.fixture');
+const { discussionOne, discussionTwo, insertDiscussions, addUsersToDiscussions } = require('../fixtures/discussion.fixture');
 
 setupTestDB();
 
@@ -463,6 +464,79 @@ describe('User routes', () => {
         .set('Authorization', `Bearer ${userOneAccessToken}`)
         .send(updateBody)
         .expect(httpStatus.BAD_REQUEST);
+    });
+  });
+
+  describe('GET /v1/users/:userId/discussions', () => {
+    test('should return 200 and all discussions of the user', async () => {
+      await insertUsers([userOne]);
+      await insertDiscussions([discussionOne, discussionTwo]);
+      await addUsersToDiscussions([userOne], [discussionOne, discussionTwo]);
+
+      const res = await request(app)
+        .get(`/v1/users/${userOne.id}/discussions`)
+        .set('Authorization', `Bearer ${userOneAccessToken}`)
+        .expect(httpStatus.OK);
+
+      expect(res.body).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: discussionOne.id,
+            title: discussionOne.title,
+            description: discussionOne.description,
+          }),
+          expect.objectContaining({
+            id: discussionTwo.id,
+            title: discussionTwo.title,
+            description: discussionTwo.description,
+          }),
+        ])
+      );
+    });
+
+    test('should return 401 error if access token is missing', async () => {
+      await insertUsers([userOne]);
+      await insertDiscussions([discussionOne, discussionTwo]);
+      await addUsersToDiscussions([userOne], [discussionOne, discussionTwo]);
+
+      await request(app).get(`/v1/users/${userOne.id}/discussions`).expect(httpStatus.UNAUTHORIZED);
+    });
+
+    test('should return 403 if user is getting discussions of another user', async () => {
+      await insertUsers([userOne, userTwo]);
+      await insertDiscussions([discussionOne, discussionTwo]);
+      await addUsersToDiscussions([userOne], [discussionOne, discussionTwo]);
+
+      await request(app)
+        .get(`/v1/users/${userOne.id}/discussions`)
+        .set('Authorization', `Bearer ${userTwoAccessToken}`)
+        .expect(httpStatus.FORBIDDEN);
+    });
+
+    test('should return 200 and all discussions of the user if admin is getting discussions of another user', async () => {
+      await insertUsers([userOne, admin]);
+      await insertDiscussions([discussionOne, discussionTwo]);
+      await addUsersToDiscussions([userOne], [discussionOne, discussionTwo]);
+
+      const res = await request(app)
+        .get(`/v1/users/${userOne.id}/discussions`)
+        .set('Authorization', `Bearer ${adminAccessToken}`)
+        .expect(httpStatus.OK);
+
+      expect(res.body).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            id: discussionOne.id,
+            title: discussionOne.title,
+            description: discussionOne.description,
+          }),
+          expect.objectContaining({
+            id: discussionTwo.id,
+            title: discussionTwo.title,
+            description: discussionTwo.description,
+          }),
+        ])
+      );
     });
   });
 });
