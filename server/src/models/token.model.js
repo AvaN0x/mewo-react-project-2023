@@ -40,7 +40,7 @@ const Token = sequelize.define(
   }
 );
 
-Token.belongsTo(User, { foreignKey: 'user' });
-User.hasMany(Token, { foreignKey: 'user' });
+Token.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Token, { foreignKey: 'userId' });
 
 module.exports = Token;

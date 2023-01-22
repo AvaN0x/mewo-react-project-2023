@@ -180,7 +180,7 @@ describe('Auth routes', () => {
       });
 
       const dbRefreshTokenDoc = await Token.findOne({ where: { token: res.body.refresh.token } });
-      expect(dbRefreshTokenDoc).toMatchObject({ type: tokenTypes.REFRESH, user: userOne.id, blacklisted: false });
+      expect(dbRefreshTokenDoc).toMatchObject({ type: tokenTypes.REFRESH, userId: userOne.id, blacklisted: false });
 
       const dbRefreshTokens = await Token.findAndCountAll();
       expect(dbRefreshTokens.count).toBe(1);
@@ -246,7 +246,7 @@ describe('Auth routes', () => {
 
       expect(sendResetPasswordEmailSpy).toHaveBeenCalledWith(userOne.email, expect.any(String));
       const resetPasswordToken = sendResetPasswordEmailSpy.mock.calls[0][1];
-      const dbResetPasswordTokenDoc = await Token.findOne({ where: { token: resetPasswordToken, user: userOne.id } });
+      const dbResetPasswordTokenDoc = await Token.findOne({ where: { token: resetPasswordToken, userId: userOne.id } });
       expect(dbResetPasswordTokenDoc).toBeDefined();
     });
 
@@ -279,7 +279,7 @@ describe('Auth routes', () => {
       expect(isPasswordMatch).toBe(true);
 
       const dbResetPasswordTokens = await Token.findAndCountAll({
-        where: { user: userOne.id, type: tokenTypes.RESET_PASSWORD },
+        where: { userId: userOne.id, type: tokenTypes.RESET_PASSWORD },
       });
       expect(dbResetPasswordTokens.count).toBe(0);
     });
@@ -371,7 +371,7 @@ describe('Auth routes', () => {
 
       expect(sendVerificationEmailSpy).toHaveBeenCalledWith(userOne.email, expect.any(String));
       const verifyEmailToken = sendVerificationEmailSpy.mock.calls[0][1];
-      const dbVerifyEmailToken = await Token.findOne({ where: { token: verifyEmailToken, user: userOne.id } });
+      const dbVerifyEmailToken = await Token.findOne({ where: { token: verifyEmailToken, userId: userOne.id } });
 
       expect(dbVerifyEmailToken).toBeDefined();
     });
@@ -402,7 +402,7 @@ describe('Auth routes', () => {
 
       const dbVerifyEmailTokens = await Token.findAndCountAll({
         where: {
-          user: userOne.id,
+          userId: userOne.id,
           type: tokenTypes.VERIFY_EMAIL,
         },
       });
