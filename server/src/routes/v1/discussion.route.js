@@ -39,23 +39,23 @@ module.exports = router;
  *       required: true
  *       content:
  *         application/json:
- *         schema:
- *           type: object
- *           required:
- *             - title
- *             - description
- *             - userIds
- *           properties:
- *             title:
- *               type: string
- *               description: The title of the discussion.
- *               example: How to create a discussion?
- *               required: true
- *             description:
- *               type: string
- *               description: The description of the discussion.
- *               example: I want to create a discussion.
- *               required: true
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - description
+ *               - userIds
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: The title of the discussion.
+ *                 example: How to create a discussion?
+ *                 required: true
+ *               description:
+ *                 type: string
+ *                 description: The description of the discussion.
+ *                 example: I want to create a discussion.
+ *                 required: true
  *             userIds:
  *               type: array
  *               description: The users that are part of the discussion.
@@ -94,6 +94,71 @@ module.exports = router;
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Discussion'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden'
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ */
+
+/**
+ * @swagger
+ * /discussions/{id}:
+ *   get:
+ *     summary: Get a discussion
+ *     description: Only authenticated users can retrieve discussions.
+ *     tags: [Discussions]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The discussion id
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Discussion'
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden'
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ */
+
+/**
+ * @swagger
+ * /discussions/{id}/comments:
+ *   get:
+ *     summary: Get a discussion comments
+ *     description: Only authenticated users can retrieve discussions.
+ *     tags: [Discussions]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The discussion id
+ *         example: 1
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Comment'
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
  *       "403":
