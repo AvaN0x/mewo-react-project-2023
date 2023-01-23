@@ -30,7 +30,7 @@ export default function Register() {
 					Inscription
 				</button>
 			</Form>
-			<span className="text-xs">
+			<span className="text-xs dark:text-gray-200">
 				Tu as déjà un compte ?{" "}
 				<Link to="/auth/login" className="text-primary">
 					Se connecter

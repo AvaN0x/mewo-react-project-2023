@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./pages/App";
 import "./index.css";
@@ -8,6 +8,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import Login, { action as loginAction } from "./pages/auth/Login";
 import Register, { action as registerAction } from "./pages/auth/Register";
 import AuthLayout from "./layouts/AuthLayout";
+import ThemeProvider from "./components/context/ThemeProvider";
 
 const router = createBrowserRouter([
 	{
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<ThemeProvider>
+			<RouterProvider router={router} />
+		</ThemeProvider>
 	</React.StrictMode>
 );

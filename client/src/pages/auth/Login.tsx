@@ -33,7 +33,7 @@ export default function Login() {
 					Connexion
 				</button>
 			</Form>
-			<span className="text-xs">
+			<span className="text-xs dark:text-gray-200">
 				Besoin d'un compte ?{" "}
 				<Link to="/auth/register" className="text-primary">
 					S'inscrire
