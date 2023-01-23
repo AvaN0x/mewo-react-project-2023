@@ -1,12 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-export const ThemeContext = createContext<ThemeContext>({ theme: "dark" });
+const ThemeContext = createContext<ThemeContext>({ theme: "dark" });
+export const useTheme = () => useContext(ThemeContext);
 
-export default function Header({ children }: { children?: JSX.Element }) {
-	const [theme, setTheme] = useState<Theme>("dark");
+export default function ThemeProvider({
+	children,
+}: {
+	children?: JSX.Element;
+}) {
+	const [theme, setTheme] = useState<Theme>(() =>
+		localStorage.getItem("theme") === "light" ? "light" : "dark"
+	);
 
 	const changeTheme = (newTheme: Theme) => {
-		console.log("save changed to", newTheme);
+		localStorage.setItem("theme", newTheme);
 
 		setTheme(newTheme);
 	};

@@ -1,3 +1,8 @@
+type SessionData = {
+	user: User;
+	tokens: Tokens;
+};
+
 type User = {
 	id: string;
 	email: string;

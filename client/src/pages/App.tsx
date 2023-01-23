@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../components/context/AuthProvider";
 
 function App() {
-	console.log(import.meta.env);
+	const { user } = useAuth();
 
 	return (
 		<div>
@@ -12,6 +13,8 @@ function App() {
 			<Link to="/route_do_not_exist">Error</Link>
 			<br />
 			api_url: '{import.meta.env.VITE_API_URL}'
+			<br />
+			<pre>{JSON.stringify(user, null, 2)}</pre>
 		</div>
 	);
 }

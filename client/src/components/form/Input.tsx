@@ -3,11 +3,15 @@ export default function Input({
 	label,
 	name,
 	required,
+	value,
+	onChange,
 }: {
 	type?: string;
 	label?: string;
 	name?: string;
 	required?: boolean;
+	value?: string | number | readonly string[];
+	onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }) {
 	return (
 		<>
@@ -20,6 +24,8 @@ export default function Input({
 			<input
 				type={type}
 				name={name}
+				value={value}
+				onChange={onChange}
 				className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 			/>
 		</>

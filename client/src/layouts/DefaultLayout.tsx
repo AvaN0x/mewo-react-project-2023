@@ -1,9 +1,19 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../components/layout/NavBar";
 import Header from "../components/layout/Header";
+import { useAuth } from "../components/context/AuthProvider";
 
 export default function DefaultLayout() {
+	const { user } = useAuth();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (!user) {
+			navigate("/auth/login");
+		}
+	}, [user]);
+
 	return (
 		<>
 			<Header />

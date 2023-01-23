@@ -5,10 +5,11 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/error";
 import DefaultLayout from "./layouts/DefaultLayout";
-import Login, { action as loginAction } from "./pages/auth/Login";
-import Register, { action as registerAction } from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import AuthLayout from "./layouts/AuthLayout";
 import ThemeProvider from "./components/context/ThemeProvider";
+import AuthProvider from "./components/context/AuthProvider";
 
 const router = createBrowserRouter([
 	{
@@ -29,12 +30,10 @@ const router = createBrowserRouter([
 			{
 				path: "/auth/login",
 				element: <Login />,
-				action: loginAction,
 			},
 			{
 				path: "/auth/register",
 				element: <Register />,
-				action: registerAction,
 			},
 		],
 	},
@@ -43,7 +42,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<ThemeProvider>
-			<RouterProvider router={router} />
+			<AuthProvider>
+				<RouterProvider router={router} />
+			</AuthProvider>
 		</ThemeProvider>
 	</React.StrictMode>
 );

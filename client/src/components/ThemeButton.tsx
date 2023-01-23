@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { ThemeContext } from "./context/ThemeProvider";
+import { useTheme } from "./context/ThemeProvider";
 
 export default function ThemeButton({ className }: { className?: string }) {
-	const { theme, change } = useContext(ThemeContext);
+	const { theme, change } = useTheme();
 
 	const handleClick = () => {
 		// Change should always be defined at this point
