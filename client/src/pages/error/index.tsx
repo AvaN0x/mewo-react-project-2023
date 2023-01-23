@@ -1,4 +1,4 @@
 export default function ErrorPage() {
 	// TODO
-	return <div>Page 404</div>;
+	return <div>404</div>;
 }

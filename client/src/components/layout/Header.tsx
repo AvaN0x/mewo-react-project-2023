@@ -25,7 +25,7 @@ export default function Header() {
 		<header className="flex fixed top-0 left-0 right-0 h-12 w-screen bg-primary">
 			top bar
 			<ThemeButton />
-			<button onClick={handleDisconnect}>Disconnect</button>
+			<button onClick={handleDisconnect}>Log out</button>
 		</header>
 	);
 }

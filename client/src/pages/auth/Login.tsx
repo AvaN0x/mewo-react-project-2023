@@ -40,7 +40,7 @@ export default function Login() {
 	return (
 		<>
 			<h1 className="text-center text-gray-900 text-xl pb-3 dark:text-white ">
-				Se connecter
+				Login
 			</h1>
 			<form onSubmit={handleSubmit}>
 				<Input
@@ -56,7 +56,7 @@ export default function Login() {
 					name="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
-					label="Mot de passe"
+					label="Password"
 					required
 				/>
 				{error && <span className="text-red-800">{error}</span>}
@@ -64,13 +64,13 @@ export default function Login() {
 					type="submit"
 					className="block bg-primary w-full rounded-sm py-1 font-light"
 				>
-					Connexion
+					Login
 				</button>
 			</form>
 			<span className="text-xs dark:text-gray-200">
-				Besoin d'un compte ?{" "}
+				Need an account ?{" "}
 				<Link to="/auth/register" className="text-primary">
-					S'inscrire
+					Sign in
 				</Link>
 			</span>
 		</>

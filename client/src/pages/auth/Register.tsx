@@ -42,7 +42,7 @@ export default function Register() {
 	return (
 		<>
 			<h1 className="text-center text-gray-900 text-xl pb-3 dark:text-white ">
-				S'inscrire
+				Sign in
 			</h1>
 			<form onSubmit={handleSubmit}>
 				<Input
@@ -50,7 +50,7 @@ export default function Register() {
 					name="name"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
-					label="Nom"
+					label="Name"
 					required
 				/>
 				<Input
@@ -66,7 +66,7 @@ export default function Register() {
 					name="password"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
-					label="Mot de passe"
+					label="Password"
 					required
 				/>
 				{error && <span className="text-red-800">{error}</span>}
@@ -75,13 +75,13 @@ export default function Register() {
 					type="submit"
 					className="block bg-primary w-full rounded-sm py-1 font-light"
 				>
-					Inscription
+					Register
 				</button>
 			</form>
 			<span className="text-xs dark:text-gray-200">
-				Tu as déjà un compte ?{" "}
+				Already have an account ?{" "}
 				<Link to="/auth/login" className="text-primary">
-					Se connecter
+					Sign in
 				</Link>
 			</span>
 		</>
