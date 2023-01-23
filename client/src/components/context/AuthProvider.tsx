@@ -38,6 +38,7 @@ export default function AuthProvider({ children }: { children?: JSX.Element }) {
 					setSessionData(data);
 				}
 			} catch (error) {
+				setSessionData(undefined);
 			} finally {
 				setMounted(true);
 			}

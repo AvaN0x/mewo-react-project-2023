@@ -8,9 +8,9 @@ export default function Register() {
 	const { setData } = useAuth();
 	const navigate = useNavigate();
 
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [name, setName] = useState("fake name");
+	const [email, setEmail] = useState("fake@example.com");
+	const [password, setPassword] = useState("password1£");
 	const [error, setError] = useState<string | undefined>(undefined);
 
 	const handleSubmit = async (event: FormEvent) => {
