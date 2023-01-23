@@ -209,3 +209,43 @@ module.exports = router;
  *       "404":
  *         $ref: '#/components/responses/NotFound'
  */
+
+/**
+ * @swagger
+ * /users/{id}/discussions:
+ *   get:
+ *     summary: Get a user's discussions
+ *     description: Logged in users can fetch only their own discussions. Only admins can fetch other users' discussions.
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User id
+ *     responses:
+ *       "200":
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Discussion'
+ *               example:
+ *                 - id: 1
+ *                   title: Discussion 1
+ *                   description: Discussion 1 description
+ *                 - id: 2
+ *                   title: Discussion 2
+ *                   description: Discussion 2 description
+ *       "401":
+ *         $ref: '#/components/responses/Unauthorized'
+ *       "403":
+ *         $ref: '#/components/responses/Forbidden'
+ *       "404":
+ *         $ref: '#/components/responses/NotFound'
+ */

@@ -39,23 +39,23 @@ module.exports = router;
  *       required: true
  *       content:
  *         application/json:
- *         schema:
- *           type: object
- *           required:
- *             - title
- *             - description
- *             - userIds
- *           properties:
- *             title:
- *               type: string
- *               description: The title of the discussion.
- *               example: How to create a discussion?
- *               required: true
- *             description:
- *               type: string
- *               description: The description of the discussion.
- *               example: I want to create a discussion.
- *               required: true
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - description
+ *               - userIds
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: The title of the discussion.
+ *                 example: How to create a discussion?
+ *                 required: true
+ *               description:
+ *                 type: string
+ *                 description: The description of the discussion.
+ *                 example: I want to create a discussion.
+ *                 required: true
  *             userIds:
  *               type: array
  *               description: The users that are part of the discussion.
