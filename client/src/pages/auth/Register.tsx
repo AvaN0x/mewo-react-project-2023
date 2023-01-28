@@ -81,7 +81,7 @@ export default function Register() {
 			<span className="text-xs dark:text-gray-200">
 				Already have an account ?{" "}
 				<Link to="/auth/login" className="text-primary">
-					Sign in
+					Login
 				</Link>
 			</span>
 		</>
