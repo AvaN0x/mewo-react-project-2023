@@ -68,7 +68,7 @@ export default function Register() {
 					label="Password"
 					required
 				/>
-				{error && <span className="text-red-800">{error}</span>}
+				{error && <span className="text-red-600">{error}</span>}
 
 				<button
 					type="submit"

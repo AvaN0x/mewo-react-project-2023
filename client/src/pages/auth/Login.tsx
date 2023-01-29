@@ -58,7 +58,7 @@ export default function Login() {
 					label="Password"
 					required
 				/>
-				{error && <span className="text-red-800">{error}</span>}
+				{error && <span className="text-red-600">{error}</span>}
 				<button
 					type="submit"
 					className="block bg-primary w-full rounded-sm py-1 font-light hover:font-normal transition-all hover:opacity-90"

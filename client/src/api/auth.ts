@@ -1,4 +1,4 @@
-import { GET, POST } from ".";
+import { GET, PATCH, POST } from ".";
 
 export const login = async ({
 	email,
@@ -23,6 +23,24 @@ export const register = async ({
 	password: string;
 }): Promise<SessionData> => {
 	return await POST("/auth/register", {
+		name,
+		email,
+		password,
+	});
+};
+
+export const patchUser = async ({
+	userId,
+	name,
+	email,
+	password,
+}: {
+	userId: string;
+	name?: string;
+	email?: string;
+	password?: string;
+}): Promise<User> => {
+	return await PATCH(`/users/${userId}`, {
 		name,
 		email,
 		password,

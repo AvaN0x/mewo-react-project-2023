@@ -6,6 +6,7 @@ import Separator from "components/Separator";
 import ThemeButton from "components/ThemeButton";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import EditPassword from "components/user/edit/EditPassword";
 
 export default function Edit() {
 	return (
@@ -17,7 +18,7 @@ export default function Edit() {
 
 			<Separator />
 			<Title className="mt-4">Change user password</Title>
-			<p>TODO</p>
+			<EditPassword />
 
 			<Separator />
 			<ThemeButton>
