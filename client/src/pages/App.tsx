@@ -12,8 +12,10 @@ function App() {
 			<br />
 			<Link to="/route_do_not_exist">Error</Link>
 			<br />
-			api_url: '{import.meta.env.VITE_API_URL}'
+			env:
+			<pre>{JSON.stringify(import.meta.env, null, 2)}</pre>
 			<br />
+			user:
 			<pre>{JSON.stringify(user, null, 2)}</pre>
 		</div>
 	);

@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../components/layout/NavBar";
-import Header from "../components/layout/Header";
 import { useAuth } from "../components/context/AuthProvider";
 
 export default function DefaultLayout() {
@@ -17,12 +16,13 @@ export default function DefaultLayout() {
 
 	return (
 		<>
-			<Header />
-			<NavBar />
+			<div className="flex h-screen bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200">
+				<NavBar />
 
-			<main className="mt-12 ml-32 font-roboto">
-				<Outlet />
-			</main>
+				<main className="font-roboto flex-1 overflow-auto p-4">
+					<Outlet />
+				</main>
+			</div>
 		</>
 	);
 }

@@ -41,7 +41,7 @@ export default function Register() {
 
 	return (
 		<>
-			<h1 className="text-center text-gray-900 text-xl pb-3 dark:text-white ">
+			<h1 className="text-center text-gray-900 text-xl pb-3 dark:text-white">
 				Sign in
 			</h1>
 			<form onSubmit={handleSubmit}>
