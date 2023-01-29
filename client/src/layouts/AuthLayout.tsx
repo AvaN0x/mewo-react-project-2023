@@ -1,9 +1,9 @@
+import { useAuth } from "components/context/AuthProvider";
+import ThemeButton from "components/ThemeButton";
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useAuth } from "../components/context/AuthProvider";
-import ThemeButton from "../components/ThemeButton";
 
-export default function DefaultLayout() {
+export default function AuthLayout() {
 	const { user } = useAuth();
 	const navigate = useNavigate();
 

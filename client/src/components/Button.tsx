@@ -1,6 +1,6 @@
-import { ReactNode, useContext } from "react";
+import { ReactNode } from "react";
 
-export default function ThemeButton({
+export default function Button({
 	children,
 	className,
 	onClick,

@@ -1,4 +1,4 @@
-import UserData from "./navbar/UserData";
+import UserData from "components/layout/navbar/UserData";
 import LogoutButton from "components/LogoutButton";
 
 export default function NavBar() {

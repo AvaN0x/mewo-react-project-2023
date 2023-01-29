@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "components/context/AuthProvider";
 import { logout } from "api/auth";
+import Button from "components/Button";
 
 export default function LogoutButton({ className }: { className?: string }) {
 	const navigate = useNavigate();

@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../api/auth";
-import Input from "../../components/form/Input";
-import { useAuth } from "../../components/context/AuthProvider";
+import { login } from "api/auth";
+import { useAuth } from "components/context/AuthProvider";
+import Input from "components/form/Input";
 import { FormEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
 	const { setData } = useAuth();

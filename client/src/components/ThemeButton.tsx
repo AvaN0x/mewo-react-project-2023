@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { useTheme } from "./context/ThemeProvider";
-import Button from "./Button";
+import { useTheme } from "components/context/ThemeProvider";
+import Button from "components/Button";
 
 export default function ThemeButton({ className }: { className?: string }) {
 	const { theme, change } = useTheme();

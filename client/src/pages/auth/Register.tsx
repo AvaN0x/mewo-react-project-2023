@@ -1,8 +1,8 @@
-import { Form, Link, useNavigate } from "react-router-dom";
-import { register } from "../../api/auth";
-import Input from "../../components/form/Input";
-import { useAuth } from "../../components/context/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 import { FormEvent, useState } from "react";
+import { useAuth } from "components/context/AuthProvider";
+import { register } from "api/auth";
+import Input from "components/form/Input";
 
 export default function Register() {
 	const { setData } = useAuth();

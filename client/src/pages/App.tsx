@@ -1,5 +1,5 @@
+import { useAuth } from "components/context/AuthProvider";
 import { Link } from "react-router-dom";
-import { useAuth } from "../components/context/AuthProvider";
 
 function App() {
 	const { user } = useAuth();

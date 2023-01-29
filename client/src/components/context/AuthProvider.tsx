@@ -1,5 +1,5 @@
+import { getCurrentUser } from "api/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { getCurrentUser } from "../../api/auth";
 
 const AuthContext = createContext<AuthContext>({});
 export const useAuth = () => useContext(AuthContext);
