@@ -1,7 +1,7 @@
-import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "./context/ThemeProvider";
+import Button from "./Button";
 
 export default function ThemeButton({ className }: { className?: string }) {
 	const { theme, change } = useTheme();
@@ -14,9 +14,9 @@ export default function ThemeButton({ className }: { className?: string }) {
 	};
 
 	return (
-		<button className={className} onClick={handleClick}>
+		<Button className={className} onClick={handleClick}>
 			{theme === "dark" && <FontAwesomeIcon icon={faMoon} />}
 			{theme === "light" && <FontAwesomeIcon icon={faSun} />}
-		</button>
+		</Button>
 	);
 }
