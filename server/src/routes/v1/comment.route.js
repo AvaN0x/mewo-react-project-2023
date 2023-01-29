@@ -25,7 +25,7 @@ module.exports = router;
  *     description: Only authenticated users can create comments.
  *     tags: [Comments]
  *     security:
- *     - bearerAuth: []
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -33,30 +33,30 @@ module.exports = router;
  *           schema:
  *             type: object
  *             required:
- *             - content
- *             - discussionId
- *           properties:
- *             content:
- *               type: string
- *               description: The comment content
- *               example: This is a comment
- *               required: true
- *               minLength: 1
- *               maxLength: 500
- *             discussionId:
- *               type: string
- *               description: The discussion id
- *               example: 5f9f1b9b0b1b9c0b8c8b9b9b
- *               required: true
- *   responses:
- *     "201":
- *       description: Created
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Comment'
- *     "400":
- *       $ref: '#/components/responses/BadRequest'
- *     "401":
- *       $ref: '#/components/responses/Unauthorized'
+ *               - content
+ *               - discussionId
+ *             properties:
+ *               content:
+ *                 type: string
+ *                 description: The content of the comment.
+ *                 example: I want to create a comment.
+ *                 required: true
+ *               discussionId:
+ *                 type: number
+ *                 description: The id of the discussion.
+ *                 example: 1
+ *                 required: true
+ *     responses:
+ *       "201":
+ *         description: Created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Comment'
+ *       "400":
+ *         $ref: '#/components/responses/BadRequest'
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
