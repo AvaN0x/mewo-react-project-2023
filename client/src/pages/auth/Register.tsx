@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { useAuth } from "components/context/AuthProvider";
 import { register } from "api/auth";
 import Input from "components/form/Input";
+import Header from "components/Header";
 
 export default function Register() {
 	const { setData } = useAuth();
@@ -41,9 +42,7 @@ export default function Register() {
 
 	return (
 		<>
-			<h1 className="text-center text-gray-900 text-xl pb-3 dark:text-white">
-				Sign in
-			</h1>
+			<Header>Sign in</Header>
 			<form onSubmit={handleSubmit}>
 				<Input
 					type="text"
@@ -73,7 +72,7 @@ export default function Register() {
 
 				<button
 					type="submit"
-					className="block bg-primary w-full rounded-sm py-1 font-light"
+					className="block bg-primary w-full rounded-sm py-1 font-light hover:font-normal transition-all hover:opacity-90"
 				>
 					Register
 				</button>

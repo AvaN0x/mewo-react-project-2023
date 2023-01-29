@@ -10,6 +10,7 @@ import Login from "pages/auth/Login";
 import Register from "pages/auth/Register";
 import ErrorPage from "pages/error";
 import "index.css";
+import UserEdit from "pages/user/Edit";
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				element: <App />,
+			},
+			{
+				path: "/user/edit",
+				element: <UserEdit />,
 			},
 		],
 	},

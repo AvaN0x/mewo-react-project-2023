@@ -1,6 +1,7 @@
 import { login } from "api/auth";
 import { useAuth } from "components/context/AuthProvider";
 import Input from "components/form/Input";
+import Header from "components/Header";
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -39,9 +40,7 @@ export default function Login() {
 
 	return (
 		<>
-			<h1 className="text-center text-gray-900 dark:text-white text-xl pb-3">
-				Login
-			</h1>
+			<Header>Login</Header>
 			<form onSubmit={handleSubmit}>
 				<Input
 					type="email"
@@ -62,7 +61,7 @@ export default function Login() {
 				{error && <span className="text-red-800">{error}</span>}
 				<button
 					type="submit"
-					className="block bg-primary w-full rounded-sm py-1 font-light"
+					className="block bg-primary w-full rounded-sm py-1 font-light hover:font-normal transition-all hover:opacity-90"
 				>
 					Login
 				</button>

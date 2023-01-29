@@ -1,3 +1,5 @@
+import Title from "components/Title";
+
 export default function Input({
 	type = "text",
 	label,
@@ -16,10 +18,10 @@ export default function Input({
 	return (
 		<>
 			{label && (
-				<label className="block text-gray-800 dark:text-gray-200 text-sm font-bold mb-2 uppercase">
+				<Title>
 					{label}
 					{required && <span className="text-red-500">*</span>}
-				</label>
+				</Title>
 			)}
 			<input
 				type={type}

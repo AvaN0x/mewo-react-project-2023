@@ -1,4 +1,4 @@
-import UserData from "components/layout/navbar/UserData";
+import NavBarUser from "components/layout/navbar/NavBarUser";
 import LogoutButton from "components/LogoutButton";
 
 export default function NavBar() {
@@ -8,7 +8,7 @@ export default function NavBar() {
 				<LogoutButton />
 			</div>
 
-			<UserData />
+			<NavBarUser />
 		</nav>
 	);
 }
