@@ -7,6 +7,7 @@ export default function DefaultLayout() {
 	const { user } = useAuth();
 	const navigate = useNavigate();
 
+	// User is currently logged in, redirect to home page
 	useEffect(() => {
 		if (user) {
 			navigate("/");
@@ -19,8 +20,10 @@ export default function DefaultLayout() {
 				<ThemeButton className="h-full w-full" />
 			</div>
 
-			<div className="rounded-lg bg-slate-300 dark:bg-slate-900 p-8 shadow-2xl min-w-[400px]">
-				<Outlet />
+			<div className="w-full max-w-[450px]">
+				<div className="rounded-lg bg-slate-300 dark:bg-slate-900 p-8 shadow-2xl mx-4">
+					<Outlet />
+				</div>
 			</div>
 		</main>
 	);

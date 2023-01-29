@@ -10,5 +10,6 @@
     },
     "conventionalCommits.scopes": [
         "client"
-    ]
+    ],
+    "prettier.useTabs": true
 }

@@ -8,6 +8,7 @@ export default function DefaultLayout() {
 	const { user } = useAuth();
 	const navigate = useNavigate();
 
+	// User is currently logged out, redirect to login page
 	useEffect(() => {
 		if (!user) {
 			navigate("/auth/login");
