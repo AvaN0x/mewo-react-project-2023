@@ -45,7 +45,7 @@ export default function ChannelIdPage() {
 				<div className="flex max-h-full">
 					<div className="flex-1 overflow-hidden flex flex-col">
 						<DetailBar channel={channel} />
-						<div className="flex-1 overflow-y-auto py-4">
+						<div className="flex-1 overflow-y-auto py-4 w-full">
 							{comments?.map((c) => (
 								<Comment comment={c} key={c.id} />
 							))}
