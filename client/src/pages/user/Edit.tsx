@@ -29,7 +29,7 @@ export default function Edit() {
 			<ThemeButton>
 				<span className="ml-2">Toggle night/light theme</span>
 			</ThemeButton>
-			<LogoutButton className="text-red-500">
+			<LogoutButton className="!text-red-500">
 				<FontAwesomeIcon icon={faRightFromBracket} />
 				<span className="ml-2">Log Out</span>
 			</LogoutButton>

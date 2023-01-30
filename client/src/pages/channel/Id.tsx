@@ -1,10 +1,8 @@
 import { get, getComments } from "api/channels";
 import CommentInput from "components/channels/CommentInput";
-import CreateChannel from "components/channels/CreateChannel";
+import Comment from "components/channels/Comment";
 import DetailBar from "components/channels/DetailBar";
 import UserList from "components/channels/UserList";
-import { useChannels } from "components/context/ChannelsProvider";
-import Header from "components/Header";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -46,9 +44,10 @@ export default function ChannelIdPage() {
 				<div className="flex max-h-full">
 					<div className="flex-1 overflow-hidden flex flex-col">
 						<DetailBar channel={channel} />
-						<div className="flex-1 overflow-y-auto p-4">
-							{/* <pre>{JSON.stringify(channel, null, 2)}</pre> */}
-							<pre>{JSON.stringify(comments, null, 2)}</pre>
+						<div className="flex-1 overflow-y-auto py-4">
+							{comments?.map((c) => (
+								<Comment comment={c} key={c.id} />
+							))}
 						</div>
 						<CommentInput
 							channelId={channel.id}
