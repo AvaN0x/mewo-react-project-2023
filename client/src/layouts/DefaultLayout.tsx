@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../components/layout/NavBar";
 import { useAuth } from "../components/context/AuthProvider";
 import ChannelsProvider from "components/context/ChannelsProvider";
+import Header from "components/Header";
 
 export default function DefaultLayout() {
 	const { user } = useAuth();
@@ -16,7 +17,13 @@ export default function DefaultLayout() {
 	}, [user]);
 
 	if (!user) {
-		return <>Loading...</>;
+		return (
+			<>
+				<div className="flex h-screen bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200 justify-center items-center">
+					<Header>Loading...</Header>
+				</div>
+			</>
+		);
 	}
 
 	return (
