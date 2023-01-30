@@ -1,6 +1,3 @@
-import { faUserPen } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "components/Button";
 import { useAuth } from "components/context/AuthProvider";
 import LogoutButton from "components/LogoutButton";
 import ThemeButton from "components/ThemeButton";

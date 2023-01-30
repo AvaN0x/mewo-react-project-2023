@@ -4,26 +4,23 @@ import Input from "components/form/Input";
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function EditPassword() {
+export default function EditUSerData() {
 	const { user, accessToken, refreshToken, setData } =
 		useAuth() as Required<AuthContext>;
 	const navigate = useNavigate();
 
-	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
+	const [name, setName] = useState(user.name);
+	const [email, setEmail] = useState(user.email);
 	const [error, setError] = useState<string | undefined>(undefined);
 
 	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
-		if (password !== confirmPassword) {
-			return setError("The two password are differents");
-		}
-
 		setError(undefined);
 		try {
 			const newUser = await patchUser({
 				userId: user.id,
-				password,
+				name,
+				email,
 			});
 
 			setData({
@@ -42,19 +39,19 @@ export default function EditPassword() {
 		<>
 			<form onSubmit={handleSubmit} className="max-w-[450px]">
 				<Input
-					type="password"
-					name="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					label="New password"
+					type="text"
+					name="name"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+					label="Name"
 					required
 				/>
 				<Input
-					type="password"
-					name="password"
-					value={confirmPassword}
-					onChange={(e) => setConfirmPassword(e.target.value)}
-					label="Confirm new password"
+					type="email"
+					name="email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+					label="E-mail"
 					required
 				/>
 				{error && <span className="text-red-600">{error}</span>}
@@ -62,7 +59,7 @@ export default function EditPassword() {
 					type="submit"
 					className="block bg-primary w-full rounded-sm py-1 font-light hover:font-normal transition-all hover:opacity-90"
 				>
-					Change Password
+					Change user data
 				</button>
 			</form>
 		</>

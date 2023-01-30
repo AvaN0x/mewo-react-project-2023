@@ -7,6 +7,7 @@ import ThemeButton from "components/ThemeButton";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditPassword from "components/user/edit/EditPassword";
+import EditUserData from "components/user/edit/EditUserData";
 
 export default function Edit() {
 	return (
@@ -15,6 +16,10 @@ export default function Edit() {
 
 			<Title>My account</Title>
 			<UserDetailedData />
+
+			<Separator />
+			<Title className="mt-4">Change user data</Title>
+			<EditUserData />
 
 			<Separator />
 			<Title className="mt-4">Change user password</Title>
