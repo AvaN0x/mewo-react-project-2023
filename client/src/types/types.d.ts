@@ -11,3 +11,8 @@ type AuthContext = {
 	refreshToken?: string;
 	setData?: (sessionData?: Required<Omit<AuthContext, "setData">>) => void;
 };
+
+type ChannelsContext = {
+	channels: Channel[];
+	add?: (channel: Channel) => void;
+};

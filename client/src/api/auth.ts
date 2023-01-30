@@ -1,10 +1,10 @@
-import { GET, PATCH, POST } from ".";
+import { GET, PATCH, POST } from "api";
 
 export const login = async ({
 	email,
 	password,
 }: {
-	email: string;
+	email: User["email"];
 	password: string;
 }): Promise<SessionData> => {
 	return await POST("/auth/login", {
@@ -18,8 +18,8 @@ export const register = async ({
 	email,
 	password,
 }: {
-	name: string;
-	email: string;
+	name: User["name"];
+	email: User["email"];
 	password: string;
 }): Promise<SessionData> => {
 	return await POST("/auth/register", {
@@ -35,9 +35,9 @@ export const patchUser = async ({
 	email,
 	password,
 }: {
-	userId: string;
-	name?: string;
-	email?: string;
+	userId: User["id"];
+	name?: User["name"];
+	email?: User["email"];
 	password?: string;
 }): Promise<User> => {
 	return await PATCH(`/users/${userId}`, {

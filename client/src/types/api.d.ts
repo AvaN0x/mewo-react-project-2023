@@ -20,11 +20,12 @@ type TokensData = {
 	expires: Date;
 };
 
-type Discussion = {
+type Channel = {
 	id: string;
 	title: string;
 	description: string;
 	comments: Comment[];
+	users: User[];
 };
 
 type Comment = {

@@ -11,6 +11,7 @@ import Register from "pages/auth/Register";
 import ErrorPage from "pages/error";
 import "index.css";
 import UserEdit from "pages/user/Edit";
+import CreateChannel from "components/channels/CreateChannel";
 
 const router = createBrowserRouter([
 	{
@@ -26,6 +27,13 @@ const router = createBrowserRouter([
 				path: "/user/edit",
 				element: <UserEdit />,
 			},
+			{
+				path: "/create/",
+				element: <CreateChannel />,
+			},
+			// {
+			// 	path: "/channels/:id",
+			// },
 		],
 	},
 	{
