@@ -51,3 +51,7 @@ yarn preview
     -   Utilisation d'un ErrorBoundary global (0,5 point)
     -   Affichage d'une page d'erreur pour les routes non existantes (0,5 point)
     -   Persistence des données au refresh (0,5 point)
+
+## License
+
+Verbally allowed by @hammenm (Maxence HAMMEN) to put a License to this repository.
