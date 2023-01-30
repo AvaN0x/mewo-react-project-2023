@@ -20,10 +20,23 @@ export const get = async (id: string): Promise<Channel> => {
 	return await GET(`/discussions/${id}`);
 };
 
-export const getComments = async (id: string): Promise<Comment[]> => {
+export const getAll = async (): Promise<Channel[]> => {
+	return await GET("/discussions");
+};
+
+export const getComments = async (id: string): Promise<ChannelComment[]> => {
 	return await GET(`/discussions/${id}/comments`);
 };
 
-export const getAll = async (): Promise<Channel[]> => {
-	return await GET("/discussions");
+export const addComment = async ({
+	content,
+	channelId,
+}: {
+	content: ChannelComment["content"];
+	channelId: string;
+}): Promise<ChannelComment> => {
+	return await POST("/comments", {
+		content,
+		discussionId: channelId,
+	});
 };

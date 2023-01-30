@@ -27,7 +27,7 @@ type Channel = {
 	users: User[];
 };
 
-type Comment = {
+type ChannelComment = {
 	id: string;
 	content: string;
 	user: User;

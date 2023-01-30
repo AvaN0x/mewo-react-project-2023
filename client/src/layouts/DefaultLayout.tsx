@@ -15,6 +15,10 @@ export default function DefaultLayout() {
 		}
 	}, [user]);
 
+	if (!user) {
+		return <>Loading...</>;
+	}
+
 	return (
 		<ChannelsProvider>
 			<div className="flex h-screen bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200">

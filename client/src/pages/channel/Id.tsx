@@ -1,4 +1,5 @@
 import { get, getComments } from "api/channels";
+import CommentInput from "components/channels/CommentInput";
 import CreateChannel from "components/channels/CreateChannel";
 import DetailBar from "components/channels/DetailBar";
 import UserList from "components/channels/UserList";
@@ -13,9 +14,9 @@ export default function ChannelIdPage() {
 	const [channel, setChannel] = useState<Channel | undefined | null>(
 		undefined
 	);
-	const [comments, setComments] = useState<Comment[] | undefined | null>(
-		undefined
-	);
+	const [comments, setComments] = useState<
+		ChannelComment[] | undefined | null
+	>(undefined);
 
 	useEffect(() => {
 		setChannel(undefined);
@@ -31,6 +32,10 @@ export default function ChannelIdPage() {
 		})();
 	}, [id]);
 
+	const handleAddComment = (comment: ChannelComment) => {
+		setComments([...(comments || []), comment]);
+	};
+
 	return (
 		<>
 			{channel === undefined ? (
@@ -45,7 +50,10 @@ export default function ChannelIdPage() {
 							{/* <pre>{JSON.stringify(channel, null, 2)}</pre> */}
 							<pre>{JSON.stringify(comments, null, 2)}</pre>
 						</div>
-						<span className="bg-cyan-500">TODO input</span>
+						<CommentInput
+							channelId={channel.id}
+							onAdd={handleAddComment}
+						/>
 					</div>
 					<UserList users={channel.users} />
 				</div>

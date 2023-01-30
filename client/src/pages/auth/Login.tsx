@@ -9,7 +9,7 @@ export default function Login() {
 	const { setData } = useAuth();
 	const navigate = useNavigate();
 
-	const [email, setEmail] = useState("fake@example.com");
+	const [email, setEmail] = useState("avafake@example.com");
 	const [password, setPassword] = useState("password1£");
 	const [error, setError] = useState<string | undefined>(undefined);
 
