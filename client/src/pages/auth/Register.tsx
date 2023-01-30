@@ -10,7 +10,7 @@ export default function Register() {
 	const navigate = useNavigate();
 
 	const [name, setName] = useState("fake name");
-	const [email, setEmail] = useState("fake@example.com");
+	const [email, setEmail] = useState("avafake@example.com");
 	const [password, setPassword] = useState("password1£");
 	const [error, setError] = useState<string | undefined>(undefined);
 
