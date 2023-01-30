@@ -11,7 +11,7 @@ import Register from "pages/auth/Register";
 import ErrorPage from "pages/error";
 import "index.css";
 import UserEdit from "pages/user/Edit";
-import CreatePage from "pages/Create";
+import CreatePage from "pages/channel/Create";
 import ChannelIdPage from "pages/channel/Id";
 
 const router = createBrowserRouter([
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
 				element: <UserEdit />,
 			},
 			{
-				path: "/create/",
+				path: "/channel/create",
 				element: <CreatePage />,
 			},
 			{

@@ -2,6 +2,7 @@ import { faHashtag, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "components/Button";
 import { useChannels } from "components/context/ChannelsProvider";
+import Header from "components/Header";
 
 export default function NavBarChannels() {
 	const { channels } = useChannels();
@@ -9,7 +10,7 @@ export default function NavBarChannels() {
 	return (
 		<div className="flex flex-col items-start flex-1 w-full p-4 overflow-y-auto">
 			<Button
-				to="/create"
+				to="/channel/create"
 				className="uppercase block text-gray-800 dark:text-gray-200 text-sm font-bold w-full !justify-start mb-2"
 			>
 				<FontAwesomeIcon icon={faPlus} className="mr-2" />
@@ -17,9 +18,9 @@ export default function NavBarChannels() {
 			</Button>
 
 			{channels === undefined ? (
-				<>Loading...</>
+				<Header>Loading...</Header>
 			) : channels === null ? (
-				<>Impossible to fetch channels</>
+				<Header>Impossible to fetch channels</Header>
 			) : (
 				channels.map((c) => (
 					<Button

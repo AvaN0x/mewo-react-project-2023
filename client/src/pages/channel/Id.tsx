@@ -5,6 +5,7 @@ import DetailBar from "components/channels/DetailBar";
 import UserList from "components/channels/UserList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Header from "components/Header";
 
 export default function ChannelIdPage() {
 	const { id } = useParams();
@@ -37,9 +38,9 @@ export default function ChannelIdPage() {
 	return (
 		<>
 			{channel === undefined ? (
-				<>Loading...</>
+				<Header className="mt-2">Loading...</Header>
 			) : channel === null ? (
-				<>Impossible to find channel</>
+				<Header className="mt-2">Impossible to find channel</Header>
 			) : (
 				<div className="flex max-h-full">
 					<div className="flex-1 overflow-hidden flex flex-col">

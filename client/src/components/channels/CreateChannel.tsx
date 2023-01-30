@@ -85,9 +85,9 @@ export default function CreateChannel() {
 				</Title>
 				<div className="mb-4 max-h-[40vh] overflow-y-auto">
 					{users === undefined ? (
-						<>Loading...</>
+						<Header>Loading...</Header>
 					) : users === null ? (
-						<>No user data found</>
+						<Header>No user data found</Header>
 					) : (
 						users.map((u) => (
 							<div key={u.id} className="mb-1">
