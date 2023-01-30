@@ -53,7 +53,7 @@ export default function ChannelIdPage() {
 			) : channel === null ? (
 				<Header className="mt-2">Impossible to find channel</Header>
 			) : (
-				<div className="flex max-h-full">
+				<div className="flex h-full">
 					<div className="flex-1 overflow-hidden flex flex-col">
 						<DetailBar channel={channel} />
 						<div
