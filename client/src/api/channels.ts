@@ -1,4 +1,4 @@
-import { POST } from "api";
+import { GET, POST } from "api";
 
 export const create = async ({
 	title,
@@ -14,4 +14,16 @@ export const create = async ({
 		description,
 		userIds,
 	});
+};
+
+export const get = async (id: string): Promise<Channel> => {
+	return await GET(`/discussions/${id}`);
+};
+
+export const getComments = async (id: string): Promise<Comment[]> => {
+	return await GET(`/discussions/${id}/comments`);
+};
+
+export const getAll = async (): Promise<Channel[]> => {
+	return await GET("/discussions");
 };

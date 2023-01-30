@@ -52,7 +52,7 @@ export default function CreateChannel() {
 			});
 
 			addChannel(channel);
-			// navigate(`/channel/${channel.id}`);
+			navigate(`/channel/${channel.id}`);
 		} catch (error) {
 			console.error(error);
 			setError((error as Error).message);

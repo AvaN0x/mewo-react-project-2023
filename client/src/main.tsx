@@ -11,7 +11,8 @@ import Register from "pages/auth/Register";
 import ErrorPage from "pages/error";
 import "index.css";
 import UserEdit from "pages/user/Edit";
-import CreateChannel from "components/channels/CreateChannel";
+import CreatePage from "pages/Create";
+import ChannelIdPage from "pages/channel/Id";
 
 const router = createBrowserRouter([
 	{
@@ -29,11 +30,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/create/",
-				element: <CreateChannel />,
+				element: <CreatePage />,
 			},
-			// {
-			// 	path: "/channels/:id",
-			// },
+			{
+				path: "/channel/:id",
+				element: <ChannelIdPage />,
+			},
 		],
 	},
 	{

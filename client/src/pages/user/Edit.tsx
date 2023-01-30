@@ -11,7 +11,7 @@ import EditUserData from "components/user/edit/EditUserData";
 
 export default function Edit() {
 	return (
-		<>
+		<div className="p-4">
 			<Header>User edit</Header>
 
 			<Title>My account</Title>
@@ -33,6 +33,6 @@ export default function Edit() {
 				<FontAwesomeIcon icon={faRightFromBracket} />
 				<span className="ml-2">Log Out</span>
 			</LogoutButton>
-		</>
+		</div>
 	);
 }

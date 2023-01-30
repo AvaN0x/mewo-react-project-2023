@@ -8,7 +8,7 @@ export default function NavBarUser() {
 
 	return (
 		<div className="flex w-full h-14 items-center bg-slate-400 dark:bg-slate-900 p-2">
-			<UserItem user={user} to="/user/edit" />
+			<UserItem user={user} to="/user/edit" className="flex-1" />
 
 			<ThemeButton className="min-w-[1.5rem]" />
 			<LogoutButton className="min-w-[1.5rem] ml-1" />

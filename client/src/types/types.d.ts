@@ -13,6 +13,6 @@ type AuthContext = {
 };
 
 type ChannelsContext = {
-	channels: Channel[];
+	channels?: Channel[] | null;
 	add?: (channel: Channel) => void;
 };

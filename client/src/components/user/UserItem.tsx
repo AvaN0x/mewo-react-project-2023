@@ -14,7 +14,7 @@ export default function UserItem({
 }) {
 	return (
 		<Button
-			className={`flex !justify-start flex-1 overflow-hidden ${className}`}
+			className={`flex !justify-start overflow-hidden ${className}`}
 			to={to}
 			onClick={onClick}
 			component="div"

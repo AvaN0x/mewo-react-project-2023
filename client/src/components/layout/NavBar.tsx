@@ -1,5 +1,5 @@
+import NavBarChannels from "components/layout/navbar/NavBarChannels";
 import NavBarUser from "components/layout/navbar/NavBarUser";
-import NavBarChannels from "./navbar/NavBarChannels";
 
 export default function NavBar() {
 	return (
