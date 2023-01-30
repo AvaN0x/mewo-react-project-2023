@@ -9,11 +9,16 @@ export default function EditPassword() {
 		useAuth() as Required<AuthContext>;
 	const navigate = useNavigate();
 
-	const [password, setPassword] = useState("password1£");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
 	const [error, setError] = useState<string | undefined>(undefined);
 
 	const handleSubmit = async (event: FormEvent) => {
 		event.preventDefault();
+		if (password !== confirmPassword) {
+			return setError("The two password are differents");
+		}
+
 		setError(undefined);
 		try {
 			const newUser = await patchUser({
@@ -42,6 +47,14 @@ export default function EditPassword() {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					label="New password"
+					required
+				/>
+				<Input
+					type="password"
+					name="password"
+					value={confirmPassword}
+					onChange={(e) => setConfirmPassword(e.target.value)}
+					label="Confirm new password"
 					required
 				/>
 				{error && <span className="text-red-600">{error}</span>}
