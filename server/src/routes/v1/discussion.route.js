@@ -56,18 +56,18 @@ module.exports = router;
  *                 description: The description of the discussion.
  *                 example: I want to create a discussion.
  *                 required: true
- *             userIds:
- *               type: array
- *               description: The users that are part of the discussion.
- *               example: [1, 2, 3]
- *               required: true
- *               items:
- *                 type: integer
- *                 format: int64
- *                 minimum: 1
- *                 description: The id of the user.
- *                 example: 1
+ *               userIds:
+ *                 type: array
+ *                 description: The users that are part of the discussion.
+ *                 example: [1, 2, 3]
  *                 required: true
+ *                 items:
+ *                   type: integer
+ *                   format: int64
+ *                   minimum: 1
+ *                   description: The id of the user.
+ *                   example: 1
+ *                   required: true
  *     responses:
  *       "201":
  *         description: Created
